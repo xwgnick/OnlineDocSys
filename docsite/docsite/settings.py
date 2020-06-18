@@ -24,13 +24,14 @@ SECRET_KEY = '-hi_sr=+!q8&q964-byab^qo=q$-j&ouh+8mtt_xg23lovswdy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+AUTH_USER_MODEL = 'recorder.Auser'
+ALLOWED_HOSTS = ['web', '127.0.0.1', 'vcm-15035.vm.duke.edu', '152.3.64.32']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'recorder',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -72,11 +73,14 @@ WSGI_APPLICATION = 'docsite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'docdb',
+        'USER': 'smartdocuser',
+        'PASSWORD':'wx50',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
